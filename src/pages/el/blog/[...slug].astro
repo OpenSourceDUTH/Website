@@ -3,14 +3,22 @@ import BlogPostLayout from '@/layouts/blog-post.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	const englishPosts = posts.filter(post => 
-		!post.id.includes('.el.md') && (post.data.locale === 'en' || !post.data.locale)
-	);
-	return englishPosts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection('blog');
+  const greekPosts = posts.filter(post => 
+    post.id.includes('.el.md') || post.data.locale === 'el'
+  );
+  
+  return greekPosts.map((post) => {
+    let slug = post.slug;
+    if (post.id.includes('.el.md')) {
+      slug = post.slug.replace('.el', '') as any;
+    }
+    
+    return {
+      params: { slug },
+      props: post,
+    };
+  });
 }
 
 type Props = CollectionEntry<'blog'>;
@@ -27,5 +35,5 @@ if (!slug || !post) {
 }
 ---
 <BlogPostLayout {...post}>
-	<Content />
+  <Content />
 </BlogPostLayout>

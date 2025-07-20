@@ -1,5 +1,5 @@
 {
-  "name": "astro-nomy",
+  "name": "opensourceduth-website",
   "type": "module",
   "version": "0.1.0",
   "scripts": {
@@ -37,12 +37,14 @@
     "@types/react-dom": "^18.3.0",
     "astro": "^4.9.2",
     "astro-icon": "^1.1.0",
-    "auth-astro": "^4.2.0",
     "balance-text": "^3.3.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.2.10",
+    "i18next": "^25.2.1",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
     "lucide-react": "^0.383.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
@@ -62,11 +64,5 @@
     "mdast-util-toc": "^7.1.0",
     "remark": "^15.0.1",
     "unist-util-visit": "^5.0.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "sharp",
-      "esbuild"
-    ]
   }
 }

@@ -4,19 +4,20 @@ import BlogCard from "@/components/cards/blog-card.astro";
 import MainLayout from "@/layouts/main-layout.astro";
 import { capitalizer } from "@/lib/utils";
 import { getCollection } from "astro:content";
+import el from "@/config/i18n/el";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  // Filter for English posts only
-  const englishPosts = allPosts.filter(post => 
-    !post.id.includes('.el.md') && (post.data.locale === 'en' || !post.data.locale)
+  // Filter for Greek posts only
+  const greekPosts = allPosts.filter(post => 
+    post.id.includes('.el.md') || post.data.locale === 'el'
   );
   const uniqueCategories = [
-    ...new Set(englishPosts.map((post) => post.data.category).flat()),
+    ...new Set(greekPosts.map((post) => post.data.category).flat()),
   ];
 
   return uniqueCategories.map((category) => {
-    const filteredPosts = englishPosts
+    const filteredPosts = greekPosts
       .filter((post) => post.data.category.includes(category))
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
     return {
@@ -31,11 +32,11 @@ const { posts } = Astro.props;
 ---
 
 <MainLayout
-  title={`${capitalizer(category)} | Blog`}
-  description={`All posts for ${category} category`}
+  title={`${capitalizer(category)} | ${el.blog?.title || "Ιστολόγιο"}`}
+  description={`Όλες οι αναρτήσεις για την κατηγορία ${category}`}
 >
   <section class="container py-10">
-    <BlogHeader title={`Posts by ${category} category`} />
+    <BlogHeader title={`Αναρτήσεις κατηγορίας ${category}`} />
 
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-9 md:gap-y-16 lg:gap-x-8"

@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Icon } from "astro-icon/components";
 import { siteConfig } from "@/config/site";
+const { joinUsLabel = "Join Us"} = Astro.props;
 ---
 
 <section class="space-y-6 py-8 sm:py-16 lg:py-20">
@@ -37,7 +38,7 @@ import { siteConfig } from "@/config/site";
         href="/apply" target="_blank"
         class={cn(buttonVariants({ size: "lg", rounded: "full" }), "gap-2")}
       >
-        <span >Join Us</span>
+        <span >{joinUsLabel}</span>
         <Icon name="lucide:arrow-right" class="size-4" />
       </a>
       <!--

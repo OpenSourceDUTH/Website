@@ -1,15 +1,16 @@
 ---
 import Footer from "@/components/layout/footer.astro";
 import Header from "@/components/layout/header.astro";
-import { MainNavigationMenu } from "@/components/main-navigation-menu";
+import { LocalizedNavigationMenu } from "@/components/localized-navigation-menu";
 import { siteConfig } from "@/config/site";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "./base-layout.astro";
 import { SheetMobileNav } from "@/components/layout/sheet-mobile-nav";
 import { navMenuConfig } from "@/config/nav-menu";
+import { navMenuConfigEl } from "@/config/nav-menu.el";
 import { docsConfig } from "@/config/docs";
 import { ThemeToggle } from "@/components/theme-toggle";
-// import MainNav from "@/components/layout/main-nav.astro";
+import { getLocaleFromPath } from "@/lib/locale";
 
 type Props = {
   title: string;
@@ -17,6 +18,11 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
+
+// Get current locale and appropriate nav config
+const currentLocale = getLocaleFromPath(Astro.url.pathname);
+const currentNavConfig = currentLocale === 'el' ? navMenuConfigEl : navMenuConfig;
+const isGreek = currentLocale === 'el';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -31,12 +37,12 @@ const { title, description } = Astro.props;
     /> -->
 
     <!-- if use Navigation Menu on desktop -->
-    <MainNavigationMenu slot="left-header" client:load />
+    <LocalizedNavigationMenu slot="left-header" client:load isGreek={isGreek} />
     <SheetMobileNav
-      mainNavItems={[...navMenuConfig.links]}
+      mainNavItems={[...currentNavConfig.links]}
       sidebarNavItems={[
-        ...navMenuConfig.pagesNav,
-        ...navMenuConfig.examplesNav,
+        ...currentNavConfig.pagesNav,
+        ...currentNavConfig.examplesNav,
         ...docsConfig.sidebarNav,
       ]}
       slot="mobile-nav-header"

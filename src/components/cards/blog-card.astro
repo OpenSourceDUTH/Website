@@ -7,11 +7,18 @@ import type { CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
+
+// Determine the locale-specific URL
+const isGreek = post.data.locale === 'el' || post.id.includes('.el.md');
+const blogBasePath = isGreek ? '/el/blog' : '/blog';
+const postSlug = post.slug.replace('.el', ''); // Remove .el suffix if present
+const postUrl = `${blogBasePath}/${postSlug}/`;
+const categoryUrl = `${blogBasePath}/category/${post.data.category}`;
 ---
 
 <article class="group space-y-4">
   <a
-    href={`/blog/${post.slug}/`}
+    href={postUrl}
     class="flex h-52 group-hover:-translate-y-2 group-hover:shadow-xl transition duration-300"
   >
     <Image
@@ -27,7 +34,7 @@ const post = Astro.props;
 
   <div class="flex items-center justify-between">
     <a
-      href={`/blog/category/${post.data.category}`}
+      href={categoryUrl}
       transition:name={"badge-cat-" + post.slug}
     >
       <Badge radius="md" className="capitalize">
@@ -43,7 +50,7 @@ const post = Astro.props;
   </div>
 
   <div>
-    <a href={`/blog/${post.slug}/`} class="group-hover:underline">
+    <a href={postUrl} class="group-hover:underline">
       <h2
         class="font-heading text-xl md:text-2xl leading-snug line-clamp-3"
         transition:name={"title-" + post.slug}

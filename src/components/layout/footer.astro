@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { footerLinks, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
+import LanguageSwitcher from "@/components/language-switcher.astro";
 
 type Props = {
   className?: string;
@@ -53,6 +54,7 @@ const { className } = Astro.props;
           class="font-medium underline underline-offset-4"
         >
           OpenSource team
+        </a>
         <!-- </a>
         . Hosting by{" "}
         <a
@@ -65,17 +67,19 @@ const { className } = Astro.props;
         </a> -->
       </p>
 
-      <!--<div class="flex items-center gap-3">
+      <div class="flex items-center gap-3">
+        <LanguageSwitcher />
         <a
           href={siteConfig.links.github}
           target="_blank"
           rel="noreferrer"
-          class="font-medium underline underline-offset-4"
+          class="text-muted-foreground hover:text-foreground transition-colors"
+          aria-label="GitHub"
         >
           <Icon name="github" class="size-5" />
         </a>
-        <ThemeToggle client:load />
-      </div>-->
+        <!-- <ThemeToggle client:load /> -->
+      </div>
     </div>
   </div>
 </footer>

@@ -27,9 +27,13 @@ export function getPagerForDoc(slug: string) {
   };
 }
 
-// @ts-ignore
-export function flatten(links: { items?: any[] }[]): any[] {
-  return links.reduce((flat: any[], link) => {
+interface LinkItem {
+  items?: LinkItem[];
+  [key: string]: any;
+}
+
+export function flatten(links: LinkItem[]): LinkItem[] {
+  return links.reduce((flat: LinkItem[], link) => {
     return flat.concat(link.items ? flatten(link.items) : link);
   }, []);
 }

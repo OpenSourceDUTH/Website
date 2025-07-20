@@ -10,7 +10,7 @@ import { infos } from "@/config/landing";
 import MainLayout from "@/layouts/main-layout.astro";
 ---
 
-<MainLayout title="OpenSourceDUTH">
+<MainLayout title="OpenSourceDUTH" description="The Open Source Community of the Democritus University of Thrace. Our mission is to promote open source software and culture within the university and beyond.">
   <HeroLanding />
   <!-- <PreviewLanding />-->
   <!-- <BentoGrid />-->
@@ -19,3 +19,36 @@ import MainLayout from "@/layouts/main-layout.astro";
   <Projects />
   <Testimonials />
 </MainLayout>
+
+
+<script>
+  // Check if user should be redirected to Greek version
+  function checkLocaleRedirect() {
+    // Get user's preferred languages
+    const userLanguages = navigator.languages || [navigator.language];
+    
+    // Check if any of the user's languages is Greek
+    const isGreekUser = userLanguages.some(lang => 
+      lang.toLowerCase().startsWith('el') || 
+      lang.toLowerCase().includes('gr')
+    );
+    
+    // Only redirect if:
+    // 1. User prefers Greek
+    // 2. User is on the root page (not already on /el)
+    // 3. User hasn't already been redirected (to prevent redirect loops)
+    if (isGreekUser && 
+        window.location.pathname === '/' && 
+        !sessionStorage.getItem('locale-checked')) {
+      
+      // Mark that we've checked the locale for this session
+      sessionStorage.setItem('locale-checked', 'true');
+      
+      // Redirect to Greek version
+      window.location.href = '/el/';
+    }
+  }
+  
+  // Run the check when the page loads
+  checkLocaleRedirect();
+</script>

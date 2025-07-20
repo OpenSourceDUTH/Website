@@ -1,0 +1,21 @@
+---
+import BentoGrid from "@/components/sections/bentogrid.astro";
+import Projects from "@/components/sections/projects.astro";
+import HeroLanding from "@/components/sections/hero-landing.astro";
+import InfoLanding from "@/components/sections/info-landing.astro";
+import PreviewLanding from "@/components/sections/preview-landing.astro";
+import Testimonials from "@/components/sections/testimonials.astro";
+import el from "@/config/i18n/el";
+import { infos } from "@/config/landing";
+import MainLayout from "@/layouts/main-layout.astro";
+---
+
+<MainLayout title="OpenSourceDUTH", description={el.hero_landing.description}>
+  <HeroLanding joinUsLabel={el.hero_landing.joinUs}/>
+  <!-- <PreviewLanding />-->
+  <!-- <BentoGrid />-->
+  <InfoLanding data={infos[0]} reverse={true} />
+  <!-- <InfoLanding data={infos[1]} /> -->
+  <Projects />
+  <Testimonials />
+</MainLayout>

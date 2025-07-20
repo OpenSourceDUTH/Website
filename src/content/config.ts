@@ -8,6 +8,7 @@ const blog = defineCollection({
       description: z.string(),
       cover: z.string(),
       category: z.string(),
+      locale: z.enum(['en', 'el']).optional().default('en'),
       // Transform string to Date object
       pubDate: z
         .string()
@@ -24,6 +25,7 @@ const docs = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    locale: z.enum(['en', 'el']).optional().default('en'),
   }),
 });
 
@@ -33,6 +35,7 @@ const guides = defineCollection({
     description: z.string(),
     published: z.boolean().default(true),
     featured: z.boolean().default(false),
+    locale: z.enum(['en', 'el']).optional().default('en'),
     pubDate: z
       .string()
       .or(z.date())
@@ -47,6 +50,7 @@ const releases = defineCollection({
       title: z.string(),
       description: z.string(),
       versionNumber: z.string(),
+      locale: z.enum(['en', 'el']).optional().default('en'),
       image: z.object({
         src: image(),
         alt: z.string(),

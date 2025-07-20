@@ -81,28 +81,8 @@ export const docsConfig: DocsConfig = {
           title: "Docs & Guides",
           href: "/docs/in-progress",
           disabled: true,
-        },
-        {
-          title: "Blog with Astro DB",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Ecommerce",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Animes (GraphQL)",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Authentification (Lucia)",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-      ],
+        }
+      ]
     },
   ],
 };

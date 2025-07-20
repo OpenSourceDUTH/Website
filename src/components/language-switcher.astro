@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+
+const currentPath = Astro.url.pathname;
+const isGreek = currentPath.startsWith('/el');
+const basePath = currentPath.replace(/^\/el/, '') || '/';
+
+const languages = [
+  { code: 'en', label: 'English', flag: '🇬🇧', path: basePath },
+  { code: 'el', label: 'Ελληνικά', flag: '🇬🇷', path: `/el${basePath}` }
+];
+
+const currentLang = isGreek ? 'el' : 'en';
+---
+
+<div class="relative group">
+  <button 
+    class="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
+    aria-label="Change language"
+  >
+    <Icon name="lucide:globe" class="size-4" />
+    <span class="hidden sm:inline">
+      {languages.find(lang => lang.code === currentLang)?.label}
+    </span>
+    <Icon name="lucide:chevron-down" class="size-3 transition-transform group-hover:rotate-180" />
+  </button>
+  
+  <div class="absolute bottom-full mb-2 right-0 min-w-[160px] bg-popover border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+    <div class="p-1">
+      {languages.map((lang) => (
+        <a
+          href={lang.path}
+          rel="prefetch"
+          class={`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
+            currentLang === lang.code 
+              ? 'bg-accent text-accent-foreground font-medium' 
+              : 'text-muted-foreground'
+          }`}
+        >
+          <span class="text-lg leading-none">{lang.flag}</span>
+          <span>{lang.label}</span>
+          {currentLang === lang.code && (
+            <Icon name="lucide:check" class="size-3 ml-auto" />
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Ensure hover works on mobile */
+  @media (hover: none) {
+    .group:focus-within .opacity-0 {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+</style>

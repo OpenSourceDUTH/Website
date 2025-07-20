@@ -12,6 +12,7 @@ export type MenuItem = NavItem & {
   external?: boolean;
   forceReload?: boolean;
   target?: string;
+  badge?: string;
 };
 
 export type MainNavItem = NavItem;
