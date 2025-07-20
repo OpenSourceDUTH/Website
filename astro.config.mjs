@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
-import simpleStackForm from "simple-stack-form";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +23,6 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }), 
-    simpleStackForm()
   ],
   output: 'static',
   vite: {

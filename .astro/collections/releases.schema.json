@@ -1,0 +1,71 @@
+{
+  "$ref": "#/definitions/releases",
+  "definitions": {
+    "releases": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "versionNumber": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string",
+          "enum": [
+            "en",
+            "el"
+          ],
+          "default": "en"
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "type": "string"
+            },
+            "alt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "src",
+            "alt"
+          ],
+          "additionalProperties": false
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "versionNumber",
+        "image",
+        "date"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
