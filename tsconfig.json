@@ -9,11 +9,6 @@
       "@/*": ["src/*"]
     },
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    // Uncommenting this results in a type error for the auth-astro package because it doesn't expose it's name publicly.
-    // I read somewhere that it may be needed. Keeping it commented out for now.
-    // If you uncomment this you're telling TypeScript to look for a global type definition file named auth-astro, 
-    // but that package doesn't expose one in that way.
-    // /"types": ["auth-astro"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro", "src/**/*.d.ts"]
 }

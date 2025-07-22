@@ -71,40 +71,6 @@ export function SheetMobileNav({
                 )}
               </div>
             ) : null}
-          {/*
-            {sidebarNavItems?.length ? (
-              <div className="flex flex-col space-y-2">
-                {sidebarNavItems.map((item, index) => {
-                  const activeItems = item?.items?.filter(
-                    (subItem) => !subItem.disabled
-                  );
-
-                  if (!activeItems || activeItems.length === 0) return null;
-
-                  return (
-                    <div key={index} className="flex flex-col space-y-3 pt-6">
-                      <h4 className="font-medium">{item.title}</h4>
-                      {activeItems.map((subItem, idx) => (
-                        <React.Fragment key={subItem.href + idx}>
-                          {subItem.href ? (
-                            <a
-                              href={subItem.href}
-                              target={subItem?.external ? "_blank" : undefined}
-                              className="text-muted-foreground"
-                            >
-                              {subItem.title}
-                            </a>
-                          ) : (
-                            subItem.title
-                          )}
-                        </React.Fragment>
-                      ))}
-                    </div>
-                  );
-                })}
-              </div>
-            ) : null}
-          */}
           </div>
         </ScrollArea>
       </SheetContent>
