@@ -8,9 +8,11 @@ export async function GET(context) {
 		title: siteConfig.name,
 		description: siteConfig.description,
 		site: context.site,
-		items: posts.map((post) => ({
-			...post.data,
-			link: `/blog/${post.slug}/`,
-		})),
+		items: posts
+			.filter(post => post.data.locale !== 'el') // Filter out posts with locale 'el'
+			.map((post) => ({
+				...post.data,
+				link: `/blog/${post.slug}/`,
+			})),
 	});
 }
