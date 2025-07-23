@@ -5,13 +5,21 @@ import { cn, formatDate } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { getLocaleFromPath } from "@/lib/locale";
 import MainLayout from "./main-layout.astro";
 
 type Props = CollectionEntry<"blog">;
 
-const slug = Astro.props.slug;
-const { title, description, pubDate, updatedDate, cover, category } =
-  Astro.props.data;
+const post = Astro.props;
+const slug = post.slug;
+const { title, description, pubDate, updatedDate, cover, category } = post.data;
+
+// Determine locale-specific paths
+const currentLocale = getLocaleFromPath(Astro.url.pathname);
+const isGreek = currentLocale === 'el';
+const blogBasePath = isGreek ? '/el/blog' : '/blog';
+const categoryUrl = `${blogBasePath}/category/${category}`;
+const backText = isGreek ? 'Πίσω' : 'Back';
 ---
 
 <MainLayout title={title} description={description}>
@@ -25,12 +33,12 @@ const { title, description, pubDate, updatedDate, cover, category } =
       transition:animate="slide"
     >
       <Icon name="lucide:chevron-left" class="mr-2 size-4" />
-      {" "}Back
+      {backText}
     </button>
 
     <article class="prose dark:prose-invert max-w-none">
       <a
-        href={`/blog/category/${category}`}
+        href={categoryUrl}
         transition:name={`badge-cat-${slug}`}
       >
         <Badge radius="md" className="capitalize">

@@ -9,7 +9,7 @@ export async function GET(context) {
 		description: siteConfig.description,
 		site: context.site,
 		items: posts
-			.filter(post => post.data.locale !== 'el') // Filter out posts with locale 'el'
+			.filter(post => post.data.locale === 'en' || !post.data.locale) // Only English posts
 			.map((post) => ({
 				...post.data,
 				link: `/blog/${post.slug}/`,

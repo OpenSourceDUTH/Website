@@ -10,9 +10,9 @@ export async function getStaticPaths() {
   
   return greekPosts.map((post) => {
     let slug = post.slug;
-    if (post.id.includes('.el.md')) {
-      slug = post.slug.replace('.el', '') as any;
-    }
+    
+    // Remove "el" suffix from slug if present (handles both .el and el endings)
+    slug = slug.replace(/el$/, '');
     
     return {
       params: { slug },

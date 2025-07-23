@@ -11,7 +11,8 @@ const post = Astro.props;
 // Determine the locale-specific URL
 const isGreek = post.data.locale === 'el' || post.id.includes('.el.md');
 const blogBasePath = isGreek ? '/el/blog' : '/blog';
-const postSlug = post.slug.replace('.el', ''); // Remove .el suffix if present
+// Remove "el" suffix from slug if present (handles both .el and el endings)
+const postSlug = post.slug.replace(/el$/, '');
 const postUrl = `${blogBasePath}/${postSlug}/`;
 const categoryUrl = `${blogBasePath}/category/${post.data.category}`;
 ---
