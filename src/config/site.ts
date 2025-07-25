@@ -1,9 +1,9 @@
 import type { SidebarNavItem, SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  name: "OpenSource DUTH",
+  name: "OpenSourceDUTH",
   description:
-    "We are OpenSource DUTH, the open-source team of the Democritus University of Thrace. We want to help students get involved with the FOSS community and create a better future for everyone.",
+    "We are OpenSourceDUTH, the open-source team of the Democritus University of Thrace. We want to help students get involved with the FOSS community and create a better future for everyone.",
   url: "https://opensource.cs.duth.gr",
   ogImage: "", // Add image here
   links: {
@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
 
 export const footerLinks: SidebarNavItem[] = [
   {
-    title: "OpenSource DUTH",
+    title: "OpenSourceDUTH",
     items: [
       { title: "Code of Conduct", href: "/el/code-of-conduct" },
       { title: "Join Us", href: "/el/apply", target: "_blank" },

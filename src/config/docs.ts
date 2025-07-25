@@ -22,30 +22,37 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: "Documentation",
+      title: "API",
       items: [
         {
           title: "Introduction",
           href: "/docs/documentation",
+          disabled: true,
         },
         {
-          title: "Components",
-          href: "/docs/documentation/components",
-        },
-        {
-          title: "Configuration  Astro DB",
+          title: "Authentication",
           href: "/docs/documentation/components",
           disabled: true,
         },
         {
-          title: "Search (Fuse.js)",
+          title: "Endpoints",
+          href: "/docs/documentation/components",
+          disabled: true,
+        },
+        {
+          title: "Search",
           href: "/docs/in-progress",
           disabled: true,
         },
+        {
+          title: "Food Schedule",
+          href:  "tba",
+          disabled: true
+        }
       ],
     },
     {
-      title: "Pages",
+      title: "MyUni",
       items: [
         {
           title: "Landing",
@@ -65,7 +72,7 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: "Examples",
+      title: "Food Schedule",
       items: [
         // {
         //   title: "Introduction",
@@ -73,7 +80,27 @@ export const docsConfig: DocsConfig = {
         //   disabled: true,
         // },
         {
-          title: "Static Blog",
+          title: "Blog",
+          href: "/docs/in-progress",
+          disabled: true,
+        },
+        {
+          title: "Docs & Guides",
+          href: "/docs/in-progress",
+          disabled: true,
+        }
+      ]
+    },
+        {
+      title: "Document Search",
+      items: [
+        // {
+        //   title: "Introduction",
+        //   href: "/docs/in-progress",
+        //   disabled: true,
+        // },
+        {
+          title: "Blog",
           href: "/docs/in-progress",
           disabled: true,
         },
