@@ -31,10 +31,10 @@ export const navMenuConfig: NavMenuConfig = {
           image: "/images/examples/static-blog.jpg",
         },
         {
-          title: "Docs",
+          title: "API",
           href: "/docs/getting-started",
           description:
-            "A Markdown/MDX docs site built using Content Collections.",
+            "Our API documentation is a comprehensive guide to our projects, providing detailed information on how to use and integrate them.",
           image: "/images/examples/documentation.jpg",
         }
       ],
@@ -48,9 +48,9 @@ export const navMenuConfig: NavMenuConfig = {
       image: "/images/examples/blog.jpg",
     },
     {
-      title: "Docs",
+      title: "API",
       href: "/soon", //docs/getting-started
-      description:"Here you can find the documentation for all of our projects",
+      description:"Here you can find the unified API for all of our projects",
       image: "/images/examples/docs.jpg",
     },
 

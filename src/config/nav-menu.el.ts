@@ -22,19 +22,21 @@ export const navMenuConfigEl: NavMenuConfig = {
   ],
   links: [
     {
-      title: "Αρχική",
-      href: "/el/",
-    },
-    {
       title: "Ιστολόγιο",
       href: "/el/blog",
       description: "Νέα και άρθρα από την κοινότητά μας.",
     },
     {
-      title: "Τεκμηρίωση",
-      href: "/el/docs",
+      title: "API",
+      href: "/el/soon", //docs/getting-started
       description: "Οδηγοί και τεκμηρίωση για τα έργα μας.",
     },
+    {
+      title: "Γίνε μέλος",
+      href: "/el/apply",
+      description: "Ενδιαφέρεσαι να συμμετάσχεις στην ομάδα μας;",
+      target: "_blank",
+    }
   ],
   examplesNav: [
     {

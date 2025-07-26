@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import type { InfoLdg } from "@/types";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { getLocaleFromPath } from "@/lib/locale";
 
 interface Props {
   reverse?: boolean;
@@ -10,6 +11,10 @@ interface Props {
 }
 
 const { reverse, data } = Astro.props;
+
+// Detect current locale for any locale-specific logic if needed
+const currentLocale = getLocaleFromPath(Astro.url.pathname);
+const isGreek = currentLocale === 'el';
 ---
 
 <div class="py-16 sm:py-20">
@@ -19,6 +24,7 @@ const { reverse, data } = Astro.props;
     <div class={cn(reverse ? "lg:order-2" : "lg:order-1")}>
       <h2
         class="font-heading text-3xl text-foreground md:text-4xl lg:text-[40px]"
+        lang={isGreek ? "el" : "en"}
       >
         {data.title}
       </h2>

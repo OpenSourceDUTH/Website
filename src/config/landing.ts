@@ -1,7 +1,7 @@
 import type { InfoLdg } from "@/types";
 
-export interface Project {
-  title: string;
+export interface Project  {
+  title: string; 
   description: string;
   link: string;
   icon: string; // Location of the icon from /public/images/projects
@@ -64,7 +64,7 @@ export const Projects: Project[] = [
 
 export const testimonials = [
   {
-    name: "Leokratis Mpakratsas",
+    name: "Leokratis Bakratsas",
     job: "Full Stack Developer",
     image: "/src/icons/teamPlaceholder.jpg",
     review: "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis luctus cras rhoncus nunc cubilia habitant aptent amet. Nisl sociosqu vel duis cras; sociosqu nisl natoque. Nibh suspendisse egestas ex; pulvinar consectetur rhoncus. Sem turpis fringilla viverra senectus ad ultricies. Sodales auctor cubilia; laoreet nunc auctor hac dictumst.",
@@ -73,21 +73,21 @@ export const testimonials = [
   {
     name: "Michael Selvesakis",
     job: "Full Stack Developer & SysAdmin",
-    image: "/src/icons/teamPlaceholder.jpg",
+    image: "/images/teamPlaceholder.jpg",
     review: "Quisque magnis magna posuere ultrices urna. Dolor ac magna aliquam vehicula facilisi elit. Etiam proin montes vehicula nulla nisl placerat fames inceptos euismod. Erat augue massa magna mollis potenti sollicitudin netus. Sociosqu purus a dolor dignissim est rhoncus phasellus. Semper magna sociosqu sodales elementum etiam ac. Per vehicula rutrum dictumst, volutpat per tristique.",
     link: "/cv/michael.pdf",
   },
   {
     name: "Vasiliki Konou",
     job: "Project Manager & Full Stack Developer",
-    image: "/src/icons/teamPlaceholder.jpg",
+    image: "/images/teamPlaceholder.jpg",
     review: "Nunc gravida elit lorem finibus enim eros felis laoreet. Lorem convallis est, sit vehicula malesuada vivamus velit. Vitae pretium integer aenean nullam aliquet eget turpis facilisi. Faucibus vehicula torquent orci libero sodales tellus mauris. Vivamus quam risus purus a elit eu, iaculis parturient. Porttitor conubia suscipit volutpat himenaeos nisl aenean aliquet leo. Ipsum sociosqu proin risus; interdum mi donec fames leo phasellus. Curae euismod mauris conubia pulvinar leo quisque..",
     link: "/cv/vasiliki.pdf",
   },
   {
     name: "Vasilis Christofas",
     job: "Embedded Engineer",
-    image: "/src/icons/teamPlaceholder.jpg",
+    image: "/images/teamPlaceholder.jpg",
     review: "Euismod mauris eu maecenas porttitor nam sit commodo eros. Nostra enim arcu sollicitudin interdum metus a pulvinar justo. Lobortis odio lorem hendrerit varius ipsum himenaeos. Luctus porttitor purus ad est porta quam semper. Consectetur odio laoreet diam semper nullam. Accumsan id suscipit condimentum sodales egestas.    ",
     link: "/cv/vasilis.pdf",
   },

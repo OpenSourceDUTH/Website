@@ -61,7 +61,7 @@ const isGreek = currentLocale === 'el';
     </div>
   </Header>
 
-  <main class={cn(mainClass)}>
+  <main class={mainClass ?? ""}>
     <slot />
   </main>
 

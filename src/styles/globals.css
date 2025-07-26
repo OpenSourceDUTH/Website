@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..900&subset=latin,greek&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -123,6 +123,17 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Ensure headings maintain bold weight for all languages */
+  .font-heading {
+    font-weight: 700;
+  }
+
+  /* Force proper font weight for Greek characters in headings */
+  .font-heading:lang(el) {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
   }
 
   /* Documentation part */

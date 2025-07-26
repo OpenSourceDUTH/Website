@@ -3,10 +3,6 @@ import type { MarketingConfig } from "@/types"
 export const marketingConfigEl: MarketingConfig = {
   mainNav: [
     {
-      title: "Αρχική",
-      href: "/el/",
-    },
-    {
       title: "Αλλαγές",
       href: "/el/releases",
     },
@@ -15,7 +11,7 @@ export const marketingConfigEl: MarketingConfig = {
       href: "/el/blog",
     },
     {
-      title: "Τεκμηρίωση",
+      title: "API",
       href: "/el/docs/getting-started/",
     },
   ],
