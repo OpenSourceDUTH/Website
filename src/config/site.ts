@@ -28,7 +28,7 @@ export const footerLinksLocales: Record<string, SidebarNavItem[]> = {
     {
       title: "OpenSourceDUTH",
       items: [
-        { title: "Code of Conduct", href: "/en/code-of-conduct" },
+        { title: "Code of Conduct", href: "/en/code-of-conduct"},
         { title: "Join Us", href: "/en/apply", target: "_blank" },
         { title: "Blog", href: "/en/soon" },
       ],
@@ -43,7 +43,7 @@ export const footerLinksLocales: Record<string, SidebarNavItem[]> = {
       title: "Social Media",
       items: [
         { title: "Instagram", href: "https://www.instagram.com/opensourceduth/", target: "_blank" },
-        { title: "Linkedin", href: "", target: "_blank" },
+        { title: "Linkedin", href: "https://linkedin.com", target: "_blank" },
       ],
     }
   ],

@@ -31,6 +31,7 @@ const currentLang = isGreek ? 'el' : 'en';
         <a
           href={lang.path}
           rel="prefetch"
+          aria-label={`Switch language to ${lang.label}`}
           class={`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
             currentLang === lang.code 
               ? 'bg-accent text-accent-foreground font-medium' 
