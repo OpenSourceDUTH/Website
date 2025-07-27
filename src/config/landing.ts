@@ -66,7 +66,7 @@ export const testimonials = [
   {
     name: "Leokratis Bakratsas",
     job: "Full Stack Developer",
-    image: "/src/icons/teamPlaceholder.jpg",
+    image: "/images/teamPlaceholder.jpg",
     review: "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis luctus cras rhoncus nunc cubilia habitant aptent amet. Nisl sociosqu vel duis cras; sociosqu nisl natoque. Nibh suspendisse egestas ex; pulvinar consectetur rhoncus. Sem turpis fringilla viverra senectus ad ultricies. Sodales auctor cubilia; laoreet nunc auctor hac dictumst.",
     link: "/cv/leokratis.pdf",
   },
@@ -94,14 +94,14 @@ export const testimonials = [
   {
     name: "Dimitris Manos",
     job: "Data Analyst",
-    image: "/src/icons/teamPlaceholder.jpg",
+    image: "/images/teamPlaceholder.jpg",
     review: "next-saas-stripe-starter provided me with the tools I needed to efficiently manage user data...",
     link: "/cv/dimitris.pdf",
   },
   {
     name: "Sotiris Papasotiriou",
     job: "DevOps Engineer",
-    image: "/src/icons/teamPlaceholder.jpg",
+    image: "/images/teamPlaceholder.jpg",
     review: "Dapibus magnis metus dolor vehicula conubia primis felis. At habitant ligula nec; sapien vivamus phasellus vel porta. At lacinia lectus; elit per amet vivamus! Ac duis elit per; commodo habitant et diam curabitur. Semper vivamus cras commodo primis massa ante blandit nec. Lectus nibh cubilia enim conubia nullam integer. Nullam tellus varius ad dignissim dis. Quis platea ut fringilla maximus ipsum. Sed platea malesuada lectus dis aliquam.",
     link: "/cv/sotiris.pdf",
   }

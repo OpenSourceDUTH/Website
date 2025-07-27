@@ -1,15 +1,19 @@
 ---
-import { ThemeToggle } from "@/components/theme-toggle";
-import { footerLinks, siteConfig } from "@/config/site";
+// import { ThemeToggle } from "@/components/theme-toggle";
+import { footerLinksLocales, siteConfigLocales } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import LanguageSwitcher from "@/components/language-switcher.astro";
+import { getLocaleFromPath } from "@/lib/locale";
 
 type Props = {
   className?: string;
 };
 
 const { className } = Astro.props;
+const locale = getLocaleFromPath(Astro.url.pathname);
+const footerLinks = footerLinksLocales[locale] || footerLinksLocales.en;
+const siteConfig = siteConfigLocales[locale] || siteConfigLocales.en;
 ---
 
 <footer class={cn("border-t", className)}>
@@ -47,23 +51,13 @@ const { className } = Astro.props;
         Copyright &copy; 2024. All rights reserved.
       </span> -->
       <p class="text-left text-sm text-muted-foreground">
-        Made with ❤️ by the{" "}
-        <a
+        Made with ❤️ by OpenSourceDUTH {" "}
+        <!-- <a
           target="_blank"
           rel="noreferrer"
           class="font-medium underline underline-offset-4"
         >
-          OpenSource team
-        </a>
-        <!-- </a>
-        . Hosting by{" "}
-        <a
-          href="https://pointer.gr"
-          target="_blank"
-          rel="noreferrer"
-          class="font-medium underline underline-offset-4"
-        >
-          Pointer
+          OpenSourceDUTH
         </a> -->
       </p>
 
@@ -78,6 +72,7 @@ const { className } = Astro.props;
         >
           <Icon name="github" class="size-5" />
         </a>
+        <!-- We don't need this but I am keeping it here just in case. Astro automatically removes it during build so I guess some code littering doesn't matter that much -->
         <!-- <ThemeToggle client:load /> -->
       </div>
     </div>
