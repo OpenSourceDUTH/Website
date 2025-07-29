@@ -6,12 +6,21 @@ import InfoLanding from "@/components/sections/info-landing.astro";
 // import PreviewLanding from "@/components/sections/preview-landing.astro";
 import Testimonials from "@/components/sections/testimonials.astro";
 import el from "@/config/i18n/el";
+import en from "@/config/i18n/en";
 import { infosEl } from "@/config/landing.el";
 import MainLayout from "@/layouts/main-layout.astro";
+
+/*
+  Adding constants from visual clarity.
+  This is not strictly necessary, but it makes the code more readable.
+  Compiled code clear this up, so it won't affect performance.
+*/
+const LandingPageText_Greek = el.landing_page;
+const LandingPageText_English = en.landing_page;
 ---
 
 <MainLayout title="OpenSourceDUTH", description={el.hero_landing.description}>
-  <HeroLanding joinUsLabel={el.hero_landing.joinUs}/>
+  <HeroLanding greek={LandingPageText_Greek} english={LandingPageText_English} />
   <!-- <PreviewLanding />-->
   <!-- <BentoGrid />-->
   <InfoLanding data={infosEl[0]} reverse={true} />

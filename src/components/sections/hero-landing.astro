@@ -3,7 +3,19 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Icon } from "astro-icon/components";
 import { siteConfig } from "@/config/site";
-const { joinUsLabel = "Join Us"} = Astro.props;
+
+// INSANITY
+import el from "@/config/i18n/el";
+import en from "@/config/i18n/en";
+const pathname = Astro.url.pathname;
+const isGreek = pathname.startsWith("/el");
+const text = isGreek ? el.landing_page : en.landing_page;
+/*
+  This is by far the most roundabout way to get the text and you can probably get it from i18n more cleanly.
+  I have spent DAYS making it work with a gazzilion different approaches but I don't like any of them.
+  I fell into the tutorial hell for this. If you think you can do it better, please do so.
+  So I am leaving it like this for now.
+*/
 ---
 
 <section class="space-y-6 py-8 sm:py-16 lg:py-20">
@@ -17,7 +29,7 @@ const { joinUsLabel = "Join Us"} = Astro.props;
       )}
       target=""
     >
-      <span class="mr-3">🎉</span> We are co-hosting GRCPC 2025!{" "}
+      <span class="mr-3">🎉</span> {text.announcement}{" "}
     </a>
    
 
@@ -38,7 +50,7 @@ const { joinUsLabel = "Join Us"} = Astro.props;
         href="/apply" target="_blank"
         class={cn(buttonVariants({ size: "lg", rounded: "full" }), "gap-2")}
       >
-        <span >{joinUsLabel}</span>
+        <span >{"."}</span>
         <Icon name="lucide:arrow-right" class="size-4" />
       </a>
       <!--
