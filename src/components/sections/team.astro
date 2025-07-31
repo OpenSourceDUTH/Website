@@ -1,22 +1,25 @@
 ---
-import { testimonials } from "@/config/landing";
+import { getTeamFromPathname, getTeamHeaderFromPathname } from "@/config/landing";
 import { Image } from "astro:assets";
 import HeaderSection from "./header-section.astro";
 import { Button } from "@/components/ui/button";
 import { Icon } from "astro-icon/components";
+
+const team = getTeamFromPathname(Astro.url.pathname);
+const teamHeader = getTeamHeaderFromPathname(Astro.url.pathname);
 ---
 
 <section>
   <div class="container flex max-w-7xl flex-col gap-10 py-32 sm:gap-y-16 items-center justify-center">
     <HeaderSection
-      label="Our Team"
-      title="What our clients are sharing."
-      subtitle="The students behind the OpenSourceDUTH team."
+      label={teamHeader.label}
+      title={teamHeader.title}
+      subtitle={teamHeader.subtitle}
     />
 
     <div class="flex flex-wrap gap-5 justify-center items-center">
       {
-        testimonials.map((item) => (
+        team.map((item) => (
           <div class="break-inside-avoid flex justify-center items-center">
             <div class="relative rounded-xl border bg-muted/25">
               <div class="flex flex-col px-4 py-5 sm:p-6">
@@ -38,8 +41,6 @@ import { Icon } from "astro-icon/components";
                       <p class="text-sm text-muted-foreground">{item.job}</p>
                     </div>
                   </div>
-                  {/* If you want to show an icon, use Icon component and ensure the name is valid and the icon library is included in astro.config.mjs */}
-                  {/* <Icon name="lucide:user" class="size-6 text-muted-foreground" /> */}
                 </div>
               </div>
             </div>

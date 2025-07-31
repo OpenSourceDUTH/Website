@@ -1,10 +1,20 @@
 import type { InfoLdg } from "@/types";
+import en from "@/config/i18n/en";
+import el from "@/config/i18n/el";
 
 export interface Project  {
   title: string; 
   description: string;
   link: string;
   icon: string; // Location of the icon from /public/images/projects
+}
+
+export interface TeamMember {
+  name: string;
+  job: string;
+  image: string;
+  review: string;
+  link: string;
 }
 export const infos: InfoLdg[] = [
   {
@@ -52,57 +62,100 @@ export const infos: InfoLdg[] = [
   },
 ];
 
-export const Projects: Project[] = [
-  {
-    title: "University Food Schedule",
-    description:
-      "University Food Schedule website. A simple website that shows the food daily schedule of the university.",
-    link: "https://opensource.cs.duth.gr/food",
-    icon: "/images/projects/food.png",
-  }
-];
+const projectsData = {
+  en: [
+    {
+      title: "University Food Schedule",
+      description: "University Food Schedule website. A simple website that shows the food daily schedule of the university.",
+      link: "https://opensource.cs.duth.gr/food",
+      icon: "/images/projects/food.png",
+    }
+  ],
+  el: [
+    {
+      title: "Πρόγραμμα Φαγητού Πανεπιστημίου",
+      description: "Ιστοσελίδα προγράμματος φαγητού πανεπιστημίου. Μια απλή ιστοσελίδα που δείχνει το καθημερινό πρόγραμμα φαγητού του πανεπιστημίου.",
+      link: "https://opensource.cs.duth.gr/food",
+      icon: "/images/projects/food.png",
+    }
+  ]
+};
 
-export const testimonials = [
+export const getProjects = (locale: 'en' | 'el' = 'en'): Project[] => {
+  return projectsData[locale];
+};
+
+export const getProjectsFromPathname = (pathname: string): Project[] => {
+  const isGreek = pathname.startsWith("/el");
+  return projectsData[isGreek ? 'el' : 'en'];
+};
+
+export const Projects = projectsData.en;
+
+// Base team data structure with images and CV links
+const teamBaseData = [
   {
-    name: "Leokratis Bakratsas",
-    job: "Full Stack Developer",
+    id: "leokratis",
     image: "/images/teamPlaceholder.jpg",
-    review: "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis luctus cras rhoncus nunc cubilia habitant aptent amet. Nisl sociosqu vel duis cras; sociosqu nisl natoque. Nibh suspendisse egestas ex; pulvinar consectetur rhoncus. Sem turpis fringilla viverra senectus ad ultricies. Sodales auctor cubilia; laoreet nunc auctor hac dictumst.",
     link: "/cv/leokratis.pdf",
   },
   {
-    name: "Michael Selvesakis",
-    job: "Full Stack Developer & SysAdmin",
+    id: "michael",
     image: "/images/teamPlaceholder.jpg",
-    review: "Quisque magnis magna posuere ultrices urna. Dolor ac magna aliquam vehicula facilisi elit. Etiam proin montes vehicula nulla nisl placerat fames inceptos euismod. Erat augue massa magna mollis potenti sollicitudin netus. Sociosqu purus a dolor dignissim est rhoncus phasellus. Semper magna sociosqu sodales elementum etiam ac. Per vehicula rutrum dictumst, volutpat per tristique.",
     link: "/cv/michael.pdf",
   },
   {
-    name: "Vasiliki Konou",
-    job: "Project Manager & Full Stack Developer",
+    id: "vasiliki",
     image: "/images/teamPlaceholder.jpg",
-    review: "Nunc gravida elit lorem finibus enim eros felis laoreet. Lorem convallis est, sit vehicula malesuada vivamus velit. Vitae pretium integer aenean nullam aliquet eget turpis facilisi. Faucibus vehicula torquent orci libero sodales tellus mauris. Vivamus quam risus purus a elit eu, iaculis parturient. Porttitor conubia suscipit volutpat himenaeos nisl aenean aliquet leo. Ipsum sociosqu proin risus; interdum mi donec fames leo phasellus. Curae euismod mauris conubia pulvinar leo quisque..",
     link: "/cv/vasiliki.pdf",
   },
   {
-    name: "Vasilis Christofas",
-    job: "Embedded Engineer",
+    id: "vasilis",
     image: "/images/teamPlaceholder.jpg",
-    review: "Euismod mauris eu maecenas porttitor nam sit commodo eros. Nostra enim arcu sollicitudin interdum metus a pulvinar justo. Lobortis odio lorem hendrerit varius ipsum himenaeos. Luctus porttitor purus ad est porta quam semper. Consectetur odio laoreet diam semper nullam. Accumsan id suscipit condimentum sodales egestas.    ",
     link: "/cv/vasilis.pdf",
   },
   {
-    name: "Dimitris Manos",
-    job: "Data Analyst",
+    id: "dimitris",
     image: "/images/teamPlaceholder.jpg",
-    review: "next-saas-stripe-starter provided me with the tools I needed to efficiently manage user data...",
     link: "/cv/dimitris.pdf",
   },
   {
-    name: "Sotiris Papasotiriou",
-    job: "DevOps Engineer",
+    id: "sotiris",
     image: "/images/teamPlaceholder.jpg",
-    review: "Dapibus magnis metus dolor vehicula conubia primis felis. At habitant ligula nec; sapien vivamus phasellus vel porta. At lacinia lectus; elit per amet vivamus! Ac duis elit per; commodo habitant et diam curabitur. Semper vivamus cras commodo primis massa ante blandit nec. Lectus nibh cubilia enim conubia nullam integer. Nullam tellus varius ad dignissim dis. Quis platea ut fringilla maximus ipsum. Sed platea malesuada lectus dis aliquam.",
     link: "/cv/sotiris.pdf",
   }
 ];
+
+export const getTeam = (locale: 'en' | 'el' = 'en'): TeamMember[] => {
+  const translations = locale === 'el' ? el : en;
+  
+  return teamBaseData.map(member => ({
+    name: translations.team.members[member.id as keyof typeof translations.team.members].name,
+    job: translations.team.members[member.id as keyof typeof translations.team.members].job,
+    review: translations.team.members[member.id as keyof typeof translations.team.members].review,
+    image: member.image,
+    link: member.link,
+  }));
+};
+
+export const getTeamFromPathname = (pathname: string): TeamMember[] => {
+  const isGreek = pathname.startsWith("/el");
+  return getTeam(isGreek ? 'el' : 'en');
+};
+
+export const getTeamHeader = (locale: 'en' | 'el' = 'en') => {
+  const translations = locale === 'el' ? el : en;
+  return {
+    label: translations.team.label,
+    title: translations.team.title,
+    subtitle: translations.team.subtitle,
+  };
+};
+
+export const getTeamHeaderFromPathname = (pathname: string) => {
+  const isGreek = pathname.startsWith("/el");
+  return getTeamHeader(isGreek ? 'el' : 'en');
+};
+
+// Legacy export for backward compatibility
+export const team = getTeam('en');

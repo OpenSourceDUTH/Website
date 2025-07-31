@@ -1,5 +1,9 @@
 import type { SidebarNavItem, SiteConfig } from "@/types";
 
+// src/config/site.ts
+/*
+TODO: Integrate this with /src/config/i18n/*.ts for better localization support.
+*/
 export const siteConfigLocales: Record<string, SiteConfig> = {
   en: {
     name: "OpenSourceDUTH",
@@ -28,9 +32,9 @@ export const footerLinksLocales: Record<string, SidebarNavItem[]> = {
     {
       title: "OpenSourceDUTH",
       items: [
-        { title: "Code of Conduct", href: "/en/code-of-conduct"},
-        { title: "Join Us", href: "/en/apply", target: "_blank" },
-        { title: "Blog", href: "/en/soon" },
+        { title: "Code of Conduct", href: "/code-of-conduct"},
+        { title: "Join Us", href: "/apply", target: "_blank" },
+        { title: "Blog", href: "/soon" },
       ],
     },
     {

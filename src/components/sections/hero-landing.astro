@@ -9,7 +9,7 @@ import el from "@/config/i18n/el";
 import en from "@/config/i18n/en";
 const pathname = Astro.url.pathname;
 const isGreek = pathname.startsWith("/el");
-const text = isGreek ? el.landing_page : en.landing_page;
+const language = isGreek ? el.landing_page : en.landing_page;
 /*
   This is by far the most roundabout way to get the text and you can probably get it from i18n more cleanly.
   I have spent DAYS making it work with a gazzilion different approaches but I don't like any of them.
@@ -22,14 +22,13 @@ const text = isGreek ? el.landing_page : en.landing_page;
   <div class="container flex max-w-5xl flex-col items-center gap-4 sm:gap-5 text-center px-4 sm:px-6 lg:px-8">
     <!-- Should add link to the blog article -->
     <a
-      href="http://opensource.cs.duth.gr/blog/grcpc-hits-duth-and-we-are-behind-it/" 
+      href={language.announcement.link}
       class={cn(
       buttonVariants({ variant: "outline", size: "sm", rounded: "full" }),
       "px-4"
       )}
-      target=""
     >
-      <span class="mr-3">🎉</span> {text.announcement}{" "}
+      <span class="mr-3">🎉</span> {language.announcement.title}{" "}
     </a>
    
 
@@ -47,10 +46,10 @@ const text = isGreek ? el.landing_page : en.landing_page;
 
     <div class="flex justify-center space-x-2 md:space-x-4">
       <a
-        href="/apply" target="_blank"
+        href={language.buttons.apply.link} target="_blank"
         class={cn(buttonVariants({ size: "lg", rounded: "full" }), "gap-2")}
       >
-        <span >{"."}</span>
+        <span >{language.buttons.apply.text}</span>
         <Icon name="lucide:arrow-right" class="size-4" />
       </a>
       <!--

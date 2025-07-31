@@ -4,7 +4,7 @@ import Projects from "@/components/sections/projects.astro";
 import HeroLanding from "@/components/sections/hero-landing.astro";
 import InfoLanding from "@/components/sections/info-landing.astro";
 // import PreviewLanding from "@/components/sections/preview-landing.astro";
-import Testimonials from "@/components/sections/testimonials.astro";
+import Team from "@/components/sections/team.astro";
 import el from "@/config/i18n/el";
 import en from "@/config/i18n/en";
 import { infosEl } from "@/config/landing.el";
@@ -20,11 +20,11 @@ const LandingPageText_English = en.landing_page;
 ---
 
 <MainLayout title="OpenSourceDUTH", description={el.hero_landing.description}>
-  <HeroLanding greek={LandingPageText_Greek} english={LandingPageText_English} />
+  <HeroLanding />
   <!-- <PreviewLanding />-->
   <!-- <BentoGrid />-->
   <InfoLanding data={infosEl[0]} reverse={true} />
   <!-- <InfoLanding data={infosEl[1]} /> -->
   <Projects />
-  <Testimonials />
+  <Team />
 </MainLayout>
