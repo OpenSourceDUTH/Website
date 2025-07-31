@@ -19,7 +19,7 @@ const language = isGreek ? el.landing_page : en.landing_page;
 ---
 
 <section class="space-y-6 py-8 sm:py-16 lg:py-20">
-  <div class="container flex max-w-5xl flex-col items-center gap-4 sm:gap-5 text-center px-4 sm:px-6 lg:px-8">
+  <div class="container flex max-w-5xl flex-col items-center gap-4 sm:gap-5 text-center px-4 sm:px-6 lg:px-8 select-none">
     <!-- Should add link to the blog article -->
     <a
       href={language.announcement.link}
@@ -28,7 +28,7 @@ const language = isGreek ? el.landing_page : en.landing_page;
       "px-4"
       )}
     >
-      <span class="mr-3">🎉</span> {language.announcement.title}{" "}
+      <span class="mr-3 s">🎉</span> {language.announcement.title}{" "}
     </a>
    
 
@@ -36,10 +36,10 @@ const language = isGreek ? el.landing_page : en.landing_page;
       class="text-right text-balance font-heading text-6xl leading-tight tracking-tight
              sm:text-[min(12vw,10rem)] 
              md:text-[min(14vw,12rem)] 
-             lg:text-[min(15vw,142px)]"
+             lg:text-[min(15vw,142px)] select-none"
     >
       OpenSource{" "} <br>
-      <span class="text-gradient_indigo-purple font-extrabold">
+      <span class="text-gradient_indigo-purple font-extrabold select-none">
         DUTH
       </span>
     </h1>
