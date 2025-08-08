@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..900&subset=latin,greek&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -80,6 +78,24 @@
 
 @layer base {
   @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter-var.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter-var-greek.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0370-03FF, U+1F00-1FFF;
+  }
+
+  @font-face {
     font-family: 'CalSans Semibold';
     src: url('/fonts/calsans-semibold.woff2') format('woff2');
     font-weight: normal;
@@ -88,11 +104,6 @@
   }
 
   * {
-    @apply border-border;
-  }
-
-  /* If you want a custom scrollbar - By @diomed */
-  /* * {
     @apply border-border;
     --sb-track-color: #ffffff;
     --sb-thumb-color: #e2e3f1;
@@ -113,7 +124,7 @@
   ::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 10px;
-  } */
+  }
 
   html {
     /* scroll-padding-top: 4rem; */

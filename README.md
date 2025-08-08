@@ -6,6 +6,7 @@ This is the website for the open source team at the Democritus University of Thr
 - [x] Blog
 - [x] Docs
 - [x] Food Schedule
+- [x] Localization
 - [ ] University Map
 
 ## Commands
