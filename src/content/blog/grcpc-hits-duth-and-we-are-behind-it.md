@@ -25,7 +25,7 @@ Our contributions include:
 - Ensuring that the testing site in Kavala operates smoothly to provide the best experience for participants
 
 ## What to expect
-Whether you're a seasoned problem solver who grinds LeetCode daily or a curious first-year student eager to challenge yourself, GRCPC 2025 promises an unforgettable experience packed with tough problems, good energy, and collaboration.
+Whether you're a seasoned problem solver who grinds Codeforces/LeetCode daily or a curious first-year student eager to challenge yourself, GRCPC 2025 promises an unforgettable experience packed with tough problems, good energy, and collaboration.
 
 At OpenSourceDUTH we are constantly living through late-night bug hunts and caffeine-fueled problem solving sessions to build software that we want to use - and now, we want to share that thrilling feeling of figuring out some of the hardest problems with you @ GRCPC 2025 in our campus! Here's what's waiting for you once you light up those monitors:
 
@@ -35,19 +35,20 @@ You’ll code with two teammates of your choice against teams from universities 
 
 #### No Internet \<\\> No Shortcurs
 
-Once the contest begins it will just be your team, your code, some documentation and up to 30 page (printed) notes per team member. No AI, no stack overflow, no Google. Solve ~8 prolems using Python OR Java OR C/C++ in 5 hours and let the best team win!
+Once the contest begins it will just be your team, your code, some documentation and up to 30 page (printed) notes per team member. No AI, no stack overflow, no Google. Solve ~8 prolems using Python OR Java OR C/C++ OR Kotlin in 5 hours and let the best team win!
 
 ## Moving Forward
 
-- How to Qualify
+#### How to Qualify
 
-- At the national phase
+In order to qualify for the next phase of GRCPC there is only one requirement: Be the best team in your university! Simply put, do your best and we'll do the rest... There is also a secret system that allows universities to send more than one team, this means that the best you do overall the more likely it is that our university will send more than one team and increase your chances to qualify to the next round as well!
 
-- Promotion to SEERC 
+#### What happens at SEERC
 
-- What happens at SEERC
+If you got to the next stage congratulations! Now you can compete once more in the Southern Eastern contest and be one of the top 13 teams that qualify for the european championship. At this point you have proved that your team is one of the best in your country and in Europe while growing and meeting an ever increasing community of talented developers of the future. 
 
-- World Finals
+After the European Championship you may participate in the world finals and see how you rank amongst top students of the world.
+
 
 ## Why it matters
 We could give you the facts about GRCPC all day but we havent really told you why you should care to join, or why we are so excited about this event. On the surface GRCPC is about solving real world algorithmic challenges under pressure, building teamwork, communication and time-management skills, but in reallity GRCPC allows you to connect with a community that loves to learn, build and share... 
@@ -68,13 +69,18 @@ You will connect with like-minded students from across Greece and Cyprus, potent
 
 #### Broader Impact
 
+Participating in GRCPC helps raise the profile of competitive programming in Greece and Cyprus, inspiring more students to pursue careers in technology and software engineering. By joining, you contribute to a culture of innovation and problem solving that extends beyond the contest itself—impacting future hackathons, open source projects, and tech communities. Your involvement encourages universities to invest in technical education and helps build a stronger, more connected ecosystem for aspiring programmers in our region.
 
 ## Join Us
+
+You think you are ready to take on the challenge? Apply with your team at [the grcpc website](https://grcpc.upatras.gr/register) and don't forget to register at icpc.global as well! We will be waiting for you at the event.
+
+
 
 ## Special Thanks
 We want to thank everyone involved in the organizing of the event, which helped us bring the **first ever** competitive programming contest in Kavala.
 
-- **University of Patras & Algoforum:** 
+- **University of Patras & GRCPC:** 
 For bringing GRCPC to life since 2023 and establishing the competitive programming field in Greece.
 
 - **Democritus University of Thrace & Department of Computer Science:**  
@@ -85,5 +91,7 @@ For their immense passion for computer science, their expertise, and skills that
 
 - **Our Team Members:**  
 For making all this possible by organizing the event and volunteering on the day of the contest.
+
+- **The Sponsors:** For their valuable support and faith in the next generation of programmers. Their contribution is vital to the success of the event. World, Campeon Gaming, Yodeck Aegean Airlines and Software Competitiveness International
 
 - **All of you** who decided to come and participate in GRCPC 2025!
