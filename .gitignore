@@ -4,4 +4,6 @@ dist/
 .vercel
 .env*.local
 .env
+# I CAN'T MAKE GITIGNORE IGNORE THIS THING
 *.astro
+.astro/
