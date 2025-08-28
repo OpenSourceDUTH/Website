@@ -1,3 +1,4 @@
+/* Ignore the warning in this file. Tailwind has been properly setup, idk why IDEs don't recognize them. Maybe it's an Astro thing. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

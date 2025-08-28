@@ -1,3 +1,4 @@
+<!-- This file handles standalone pages in article format to be used for things like the code-of-conduct -->
 ---
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -24,19 +25,6 @@ const { title, description, pubDate, updatedDate, cover, category, slug } = Astr
   <div class="relative container max-w-screen-md py-10">
 
     <article class="prose dark:prose-invert max-w-none">
-      <!--<div class="flex items-center justify-between">
-        <span
-          class="font-medium text-muted-foreground"
-          transition:name={`date-${slug}`}
-        >
-          {formatDate(new Date(pubDate))}
-          {
-            updatedDate && (
-              <span>- Last updated on {formatDate(new Date(updatedDate))}</span>
-            )
-          }
-        </span>
-      </div>-->
       <h1 class="font-heading text-4xl my-4" transition:name={`title-${slug}`}>
         {title}
       </h1>
