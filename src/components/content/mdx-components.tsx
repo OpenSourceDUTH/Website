@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import Callout from "@/components/callout.astro";
-import FolderFile from "@/components/folderfile.astro";
-import MdxCard from "@/components/content/mdx-card.astro";
+import Callout from "@/components/callout.astro"; // Errors go away on build
+import FolderFile from "@/components/folderfile.astro"; // Errors go away on build
+import MdxCard from "@/components/content/mdx-card.astro"; // Errors go away on build
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
 
