@@ -32,7 +32,7 @@ export default defineConfig({
       },
     },
     server: {
-      allowedHosts: ['pc.leokratis.tech', 'osduth.leokratis.tech'],
+      allowedHosts: ['opensource.leokratis.tech', 'osduth.leokratis.tech'],
     },
   },
   i18n: {

@@ -1,60 +1,47 @@
 ---
 title: Getting started
-description: Welcome to the Astronomy documentation.
+description: Welcome to the OpenSourceDUTH API documentation.
 ---
 
-This is the documentation for the Astronomy site.
-
-This is an example of a doc site built using [Markdown and MDX](https://docs.astro.build/en/guides/markdown-content/) of Astro.
-
 <Callout icon="⚠️" type="warning">
-
-This site is a work in progress. If you see dummy text on a page, it means I'm still working on it. You can follow updates on Twitter [@miickasmt](https://twitter.com/miickasmt).
-
+The API is currently in alpha (v0), which will be deprecated as soon as v1 is released. 
+Integrating with our API is not recommended for production use at this time as it will probably undergo breaking changes to the endpoints and return schemas.
 </Callout>
 
-<Callout icon="💡" type="info">
+This is the API documentation for all of our team's work. 
+We use a central API to manage our open-source projects in order to enable seemless integration and allow for users to easily access data across our platforms.
 
-I will gradually update the documentation of the starter template, relying on [Astro](https://docs.astro.build/en/getting-started/) and [shadcn/ui](https://ui.shadcn.com/) as references.
+In order to prevent the abuse of our API and server resources, we require all users to authenticate and obtain an API key*. **The entire API is free to use and we will never charge for access.**
+Public data (meaning data that is not personally identifiable and we have permission to share or have collected ourselves) 
+can be exported in bulk using the appropriate endpoints, in case you want to avoid making multiple requests or need local copes for your apps.
 
-</Callout>
+*`(Ratelimits apply on a per feature/endpoint basis. Academic accounts get higher usage quotas. Rate limits can be increased by contacting us.)`
 
-## Features
+## Obtaining an API Key
+TBA
 
-Select a feature below to learn more about it.
+## Documentation Overview
+
 
 <div className="docs-grid-cols-2 mt-6">
-
-<Card href="/docs/documentation">
-
-### Documentation
-
-This documentation site built using Contentlayer.
-
+<Card href="/docs/food_schedule/introduction">
+### Food Schedule API
+Request current and historical food schedule data for the student restaurant.
 </Card>
 
-<Card  href="/docs/marketing" disabled>
-
-### Marketing
-
-The marketing site with landing pages.
-
+<Card href="/docs/search/introduction">
+### Search API
+Find specific information in study materials using our document search API.
 </Card>
 
-<Card  href="/docs/app" disabled>
-
-### App
-
-The dashboard with auth and subscriptions.
-
+<Card href="/docs/maps/introduction">
+### Maps API
+Get access to the most accurate maps for the campus. Request highly customizable routing information and integrate our maps to your apps.
 </Card>
 
-<Card  href="/docs/blog" disabled>
-
-### Blog
-
-The blog built using Contentlayer and MDX.
-
+<Card href="/docs/api/introduction">
+### API Developer Docs
+Learn how to integrate with our API, fork it and make it your own. Uunderstand the authentication process, and explore best practices for using our services.
 </Card>
 
 </div>

@@ -13,7 +13,8 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
-      title: "Getting Started",
+      title: "API Documentation",
+      defaultOpen: true, // Top-level sections are expanded by default
       items: [
         {
           title: "Introduction",
@@ -22,94 +23,69 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: "API",
+      title: "Food Schedule",
+      defaultOpen: true,
       items: [
         {
           title: "Introduction",
-          href: "/docs/documentation",
+          href: "/docs/food-schedule/introduction",
           disabled: true,
         },
         {
-          title: "Authentication",
-          href: "/docs/documentation/components",
+          title: "Examples",
+          href: "/docs/food-schedule/examples",
           disabled: true,
         },
         {
           title: "Endpoints",
-          href: "/docs/documentation/components",
+          href: "/docs/food-schedule/endpoints",
           disabled: true,
         },
-        {
-          title: "Search",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Food Schedule",
-          href:  "tba",
-          disabled: true
-        }
-      ],
+      ]
     },
     {
-      title: "MyUni",
+      title: "Document Search (TBA)",
+      defaultOpen: true,
       items: [
         {
-          title: "Landing",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Changelog",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Wait List",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-      ],
-    },
-    {
-      title: "Food Schedule",
-      items: [
-        // {
-        //   title: "Introduction",
-        //   href: "/docs/in-progress",
-        //   disabled: true,
-        // },
-        {
-          title: "Blog",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Docs & Guides",
-          href: "/docs/in-progress",
+          title: "Introduction",
+          href: "/docs/search/introduction",
           disabled: true,
         }
       ]
     },
-        {
-      title: "Document Search",
+    {
+      title: "Maps (TBA)",
+      defaultOpen: true,
       items: [
-        // {
-        //   title: "Introduction",
-        //   href: "/docs/in-progress",
-        //   disabled: true,
-        // },
         {
-          title: "Blog",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Docs & Guides",
-          href: "/docs/in-progress",
+          title: "Introduction",
+          href: "/docs/maps/introduction",
           disabled: true,
         }
       ]
+    },
+    {
+      title: "API Developer Docs",
+      defaultOpen: true,
+      items: [
+        {
+          title: "Introduction",
+          href: "/docs/api/introduction",
+          disabled: false,
+        },
+        {
+          title: "Authentication",
+          defaultOpen: false,
+          items: [
+            {
+              title: "Database Schema",
+              href: "/docs/api/authentication/database-schema",
+              disabled: false,
+            }
+          ]
+        }
+      ], 
     },
   ],
 };

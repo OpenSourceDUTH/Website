@@ -3,6 +3,6 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   server: {
-    allowedHosts: ["osduth.leokratis.tech"]
+    allowedHosts: true
   },
 });

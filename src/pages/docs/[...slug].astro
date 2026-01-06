@@ -1,6 +1,7 @@
 ---
 import { MdxComponents } from "@/components/content/mdx-components";
-import DocsSidebarNav from "@/components/layout/sidebar-nav.astro";
+import { DocsSidebarNav } from "@/components/layout/docs-sidebar-nav";
+import { DocsMobileSidebar } from "@/components/layout/docs-mobile-sidebar";
 import DocsPageHeader from "@/components/page-header.astro";
 import DocsPager from "@/components/pager.astro";
 import { DashboardTableOfContents } from "@/components/toc";
@@ -41,10 +42,10 @@ if (!slug || !doc) {
       class="flex-1 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10"
     >
       <aside
-        class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
+        class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block md:top-16"
       >
         <ScrollArea className="h-full py-6 pr-6 lg:py-8" client:load>
-          <DocsSidebarNav items={docsConfig.sidebarNav} />
+          <DocsSidebarNav items={docsConfig.sidebarNav} client:load />
         </ScrollArea>
       </aside>
       <main
@@ -77,4 +78,5 @@ if (!slug || !doc) {
       </main>
     </div>
   </div>
+  <DocsMobileSidebar items={docsConfig.sidebarNav} client:load />
 </DocsLayout>

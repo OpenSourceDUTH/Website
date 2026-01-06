@@ -22,6 +22,7 @@ export type SidebarNavItem = {
   disabled?: boolean;
   external?: boolean;
   target?: string;
+  defaultOpen?: boolean; // Whether this section is expanded by default (true for top-level, false for sub-folders)
 } & (
   | {
       href: string;
@@ -30,9 +31,8 @@ export type SidebarNavItem = {
     }
   | {
       href?: string;
-      items: MenuItem[];
+      items: (MenuItem | SidebarNavItem)[]; // Support nested SidebarNavItem for sub-folders
       target?: string;
-
     }
 );
 

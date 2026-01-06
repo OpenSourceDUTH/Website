@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Callout from "@/components/callout.astro";
+import FolderFile from "@/components/folderfile.astro";
 import MdxCard from "@/components/content/mdx-card.astro";
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
@@ -144,5 +145,6 @@ export const MdxComponents = {
   ),
   Image,
   Callout,
+  FolderFile,
   Card: MdxCard,
 };

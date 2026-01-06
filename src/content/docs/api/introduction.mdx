@@ -1,0 +1,96 @@
+---
+title: Introduction
+description: The developer technical documentation for the OpenSourceDUTH API.
+---
+
+<Callout type="info">
+The [API Developer Docs](/docs/api/introduction) are intended for people who wish to to mess with the API's code itself.
+If you are looking for information on how to use the API please head [over here](/docs/getting-started).
+</Callout>
+
+The OpenSourceDUTH API is a RESTful API written in Go using the [Gin Gonic Web Framework](https://gin-gonic.com).
+It is an authenticated API with logging, rate limiting, versioning and database migration support, this means that
+it can be used as a cental place to manage users and data across multiple (open-source) apps and services that
+co-operate with each other [extremely fast](https://bravenewgeek.com/so-you-wanna-go-fast/).
+
+
+
+## Architecture Overview
+The API is based around three main concepts: 
+
+- The API should have **strict versioning**, where routes are prefixed by version (`/api/v1/...`) 
+to ensure backwards compatibility. Note that in order to avoid *database hell* we do not version the database
+schema itself, changes to the databases should either add new tables/columns or deprecate old versions of the API.
+- **Quotas should be applied on a per-feature basis and follow clear higherarchy rules**. Different features require
+different levels of *API spamming* and thus should have different rate limits and quotas. For example calls to the
+mapping api requires the client to call the API for every tile-region the user requests, whereas the food schedule
+needs to be called only once to show the schedule.
+- Lastly, the API should be **easily extensible** and follow Go's best practices. This means that every feature lives
+as it's own module within the <FolderFile type="folder">internal</FolderFile> directory, sharing common middleware for authentication, logging and rate limiting.
+
+## Project Structure
+{/* We should make another module for this maybe one that takes folder and subfolders as an arguement and returns an image like element */}
+- <FolderFile type="folder">cmd</FolderFile> is the entry point for the `api` and `migrate` tools.
+- <FolderFile type="folder">internal</FolderFile> is the api's internal code, split into modules for each feature.
+    - <span><FolderFile type="folder">auth</FolderFile> handles authentication, oauth and session management.</span>
+    - <span><FolderFile type="folder">v0</FolderFile> is a version of the API.</span>
+    - <span><FolderFile type="folder">common</FolderFile> contains common code used across modules.</span>
+    - <span><FolderFile type="folder">databases</FolderFile> contains database related code such as schemas.</span>
+- <FolderFile type="file">main</FolderFile> the main binary for the API after build.
+
+## Running The API
+#### Pre-requisites
+- Go
+- OAuth Credentials for Google and GitHub
+
+#### Steps to Run
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/OpenSourceDUTH/API
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd ./API
+    ```
+3. Set up environment variables:
+    - Create a `.env` file in the root directory or set the following environment variables in shell:
+        - `GOOGLE_CLIENT_ID`
+        - `GOOGLE_CLIENT_SECRET`
+        - `GITHUB_CLIENT_ID`
+        - `GITHUB_CLIENT_SECRET`
+        - `SESSION_SECRET` (a random string for session encryption)
+4. Run the migrations to initiate the local SQLite databases:
+    ```bash
+    go run cmd/migrate/main.go up
+    ```
+5. Start the API server:
+    ```bash
+    go run cmd/api/main.go
+    ```
+    OR compile it and run the binary:
+    ```bash
+    go build -o api cmd/api/main.go
+    ./api
+    ```
+
+## API Versioning and Adding New Features
+The API uses strict versioning to ensure backwards compatibility. If you want to add new features or endpoints,
+we recommend that you either create them in the latest version or in your own new version module. 
+Of course, if you want to ditch our features and use this project as a base for your own API, feel free to do so!
+
+Generally, it is good practice to follow the current strcuture in the <FolderFile type="folder">internal</FolderFile> directory:
+Features that concern multiple features and exist accross versions (usually non-user facing features) should go in the <FolderFile type="folder">common</FolderFile> module or as a folder with the feature name.
+As for user-facing features, they can exist in `internal/v[n]/[feature_name]`.
+
+## Deployment
+The API uses SQLite in Write-Ahead Logging mode to handle concurrent writes effectively.
+For production deployments, you need to ensure that `SECURE_COOKIES` is set to `true` in the environment variables,
+that you use a presistent volume for the database files (Please do backups) and that you set the correct `AUTH_CALLBACK_URL` in both your environment
+variables and your OAuth provider(s) settings. Lastly, make sure to comment out/delete any routes you don't want to support.
+
+##### Note:
+Every request returns headers to help consumers manage their usage:
+
+X-RateLimit-Limit: Total requests allowed per minute for the specific feature.
+X-RateLimit-Remaining: Remaining requests in the current window.
+X-RateLimit-Reset: Seconds until the quota resets.
