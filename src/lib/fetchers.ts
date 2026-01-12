@@ -72,19 +72,3 @@ export async function getDocs(locale: string = 'en') {
   return docs;
 }
 
-export async function getReleases(locale: string = 'en') {
-  const releases = (await getCollection("releases"))
-    .filter((release) => {
-      // Check for locale-specific files (e.g., filename.el.md)
-      const isLocaleFile = release.id.includes(`.${locale}.md`);
-      // Check for locale in frontmatter
-      const hasLocaleInFrontmatter = release.data.locale === locale;
-      // Default files (no locale suffix) are considered English
-      const isDefaultFile = !release.id.includes('.el.md') && locale === 'en';
-      
-      return isLocaleFile || hasLocaleInFrontmatter || isDefaultFile;
-    })
-    .sort((a, b) => +b.data.date - +a.data.date);
-
-  return releases;
-}

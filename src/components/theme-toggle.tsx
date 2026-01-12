@@ -108,8 +108,8 @@ export function ThemeToggle() {
       className="min-h-[40px] block focus:outline-none"
     >
       <span className="sr-only">Toggle mode</span>
-      <AnimatePresence initial={false}>
-        {theme !== "dark" ? <SunIcon /> : <MoonIcon />}
+      <AnimatePresence initial={false} mode="wait">
+        {theme !== "dark" ? <SunIcon key="sun" /> : <MoonIcon key="moon" />}
       </AnimatePresence>
     </button>
   ) : (

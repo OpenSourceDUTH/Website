@@ -13,6 +13,12 @@ It is an authenticated API with logging, rate limiting, versioning and database 
 it can be used as a cental place to manage users and data across multiple (open-source) apps and services that
 co-operate with each other [extremely fast](https://bravenewgeek.com/so-you-wanna-go-fast/).
 
+The general flow of this API is that everything works with barrer tokens (*osduth_random-token-str*). This means that authentication is primarily used
+for obtaining tokens and editing them. If you want to add functionality from the API to your website/app/service you
+need to create a token for it, set the correct feature scope (slugs) and whitelist your service's IPs if needed. 
+User authentication is done via OAuth2 with Google and GitHub as providers, and sessions are used to keep users logged in.
+The information about the current user's session is available without tokens so you can build user-facing features easily.
+
 
 
 ## Architecture Overview

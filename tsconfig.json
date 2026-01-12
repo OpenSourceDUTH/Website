@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "strictNullChecks": true,
+    "skipLibCheck": true,
     // These seem to conflict with the <span> attribute in the base-head.astro file. Commenting them seems to work and does not break anything else so I am keeping them like this.
     // "jsx": "react-jsx",
     // "jsxImportSource": "react",

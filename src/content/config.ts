@@ -43,21 +43,5 @@ const guides = defineCollection({
   }),
 });
 
-const releases = defineCollection({
-  // Type-check frontmatter using a schema
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      versionNumber: z.string(),
-      locale: z.enum(['en', 'el']).optional().default('en'),
-      image: z.object({
-        src: image(),
-        alt: z.string(),
-      }),
-      // Transform string to Date object
-      date: z.date({ coerce: true }),
-    }),
-});
 
-export const collections = { blog, docs, guides, releases };
+export const collections = { blog, docs, guides };
