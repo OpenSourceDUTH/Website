@@ -133,7 +133,7 @@ export const MdxComponents = {
       {...props}
     />
   ),
-  pre: ({ className, ...props }: Props) => (
+  pre: ({ className, tabindex, ...props }: React.HTMLAttributes<HTMLPreElement> & { tabindex?: string | number }) => (
     <pre
       className={cn(
         "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black p-4",
