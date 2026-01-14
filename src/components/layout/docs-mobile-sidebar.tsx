@@ -17,11 +17,11 @@ export function DocsMobileSidebar({ items }: DocsMobileSidebarProps) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="outline"
+          variant="secondary"
           size="default"
           rounded="full"
           className="fixed bottom-4 right-4 z-40 size-12 p-0 shadow-lg md:hidden"
-          aria-label="Open documentation sidebar"
+          aria-label="Open documentation Sidebar"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

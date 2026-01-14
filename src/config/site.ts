@@ -47,7 +47,7 @@ export const footerLinksLocales: Record<string, SidebarNavItem[]> = {
       title: "Social Media",
       items: [
         { title: "Instagram", href: "https://www.instagram.com/opensourceduth/", target: "_blank" },
-        { title: "Linkedin", href: "https://linkedin.com", target: "_blank" },
+        { title: "Linkedin", href: "https://www.linkedin.com/company/OpenSourceDUTH", target: "_blank" },
       ],
     }
   ],
@@ -70,7 +70,7 @@ export const footerLinksLocales: Record<string, SidebarNavItem[]> = {
       title: "Κοινωνικά Δίκτυα",
       items: [
         { title: "Instagram", href: "https://www.instagram.com/opensourceduth/", target: "_blank" },
-        { title: "Linkedin", href: "", target: "_blank" },
+        { title: "Linkedin", href: "https://www.linkedin.com/company/OpenSourceDUTH", target: "_blank" },
       ],
     }
   ]

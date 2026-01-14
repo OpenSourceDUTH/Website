@@ -8,6 +8,8 @@ This is the website for the open source team at the Democritus University of Thr
 - [x] Food Schedule
 - [x] Localization
 - [ ] University Map
+- [ ] Search
+- [ ] Join Us Page
 
 ## Commands
 All commands are run from the root of the project, from a terminal:

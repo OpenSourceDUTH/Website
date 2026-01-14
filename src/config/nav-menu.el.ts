@@ -28,8 +28,8 @@ export const navMenuConfigEl: NavMenuConfig = {
     },
     {
       title: "API",
-      href: "/el/soon", //docs/getting-started
-      description: "Οδηγοί και τεκμηρίωση για τα έργα μας.",
+      href: "/docs/getting-started", //docs/getting-started
+      description: "Τα πάντα σχετικά με το API μας.",
     },
     {
       title: "Γίνε μέλος",

@@ -49,7 +49,7 @@ export const navMenuConfig: NavMenuConfig = {
     },
     {
       title: "API",
-      href: "/soon", //docs/getting-started
+      href: "/docs/getting-started", //docs/getting-started
       description:"Here you can find the unified API for all of our projects",
       image: "/images/examples/docs.jpg",
     },

@@ -2,30 +2,41 @@
 title: Database Schema
 description: An overview of the database schema and relations used for the system.
 ---
-The schema defines how the data is organized in order to achieve the behavior as descrbed in the [introduction](/docs/api/introduction).
-Groups (groups)
+The database schema is built to handle a multi-tenant feature management system with OAuth-based authentication for user accounts and a higherarchical token system for each feature.
+A _user_ (users, sessions) logs in to a management interface via _OAuth2_ (oauth_identities, oauth_states`) and can _create tokens_ (tokens) that have access to _specific feature slugs_ -children of the main feature parent- (features) 
+with defined quotas that can be overriden (group_feature_quotas, user_quota_overrides) and optional IP whitelisting (token_allowed_ips). A user who loggs in with an _academic domain_ which is a predefined _group_ (academic_domains, gorups) has 
+higher default quotas and all API usage (usage_log) is logged for auditing and analytics purposes. 
 
-Academic Domains (academic_domains)
+##### Groups (groups)
 
-Users (users)
+<p>
+id - integer, primary key <br></br>
+name - string <br></br>
+default_rpm - integer, default 60 <br></br>
+description - text
+created_at - timestamp, default current_timestamp
+</>
 
-OAuth Identities (oauth_identities)
+##### Academic Domains (academic_domains)
 
-OAuth States (oauth_states)
+##### Users (users)
 
-Sessions (sessions)
+##### OAuth Identities (oauth_identities)
 
-Features (features)
+##### OAuth States (oauth_states)
 
-Group Feature Quotas (group_feature_quotas)
+##### Sessions (sessions)
 
-User Quota Overrides (user_quota_overrides)
+##### Features (features)
 
-Tokens (tokens)
+##### Group Feature Quotas (group_feature_quotas)
 
-Token Features (token_features)
+##### User Quota Overrides (user_quota_overrides)
+    
+##### Tokens (tokens)
 
-Token Allowed IPs (token_allowed_ips)
+##### Token Features (token_features)
 
-Usage Log (usage_log)
+##### Token Allowed IPs (token_allowed_ips)
 
+##### Usage Log (usage_log)

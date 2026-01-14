@@ -69,6 +69,18 @@ const projectsData = {
       description: "University Food Schedule website. A simple website that shows the food daily schedule of the university.",
       link: "https://opensource.cs.duth.gr/food",
       icon: "/images/projects/food.png",
+    },
+    {
+      title: "API",
+      description: "Unified API for all OpenSourceDUTH projects. A simple and easy to use API that provides access to all our projects data. ",
+      link: "https://opensource.cs.duth.gr/docs/getting-started",
+      icon: "/images/projects/api.png",
+    },
+    {
+      title: "Maps",
+      description: "University Campus Map. The most complete map for the Democritus University of Thrace Kavala campus.",
+      link: "https://github.com/OpenSourceDUTH/Maps",
+      icon: "/images/projects/maps.png",
     }
   ],
   el: [
