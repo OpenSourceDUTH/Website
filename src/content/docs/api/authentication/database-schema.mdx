@@ -2,20 +2,20 @@
 title: Database Schema
 description: An overview of the database schema and relations used for the system.
 ---
+
 The database schema is built to handle a multi-tenant feature management system with OAuth-based authentication for user accounts and a higherarchical token system for each feature.
-A _user_ (users, sessions) logs in to a management interface via _OAuth2_ (oauth_identities, oauth_states`) and can _create tokens_ (tokens) that have access to _specific feature slugs_ -children of the main feature parent- (features) 
-with defined quotas that can be overriden (group_feature_quotas, user_quota_overrides) and optional IP whitelisting (token_allowed_ips). A user who loggs in with an _academic domain_ which is a predefined _group_ (academic_domains, gorups) has 
-higher default quotas and all API usage (usage_log) is logged for auditing and analytics purposes. 
+A _user_ (users, sessions) logs in to a management interface via _OAuth2_ (oauth*identities, oauth_states`) and can \_create tokens* (tokens) that have access to _specific feature slugs_ -children of the main feature parent- (features)
+with defined quotas that can be overriden (group*feature_quotas, user_quota_overrides) and optional IP whitelisting (token_allowed_ips). A user who loggs in with an \_academic domain* which is a predefined _group_ (academic_domains, gorups) has
+higher default quotas and all API usage (usage_log) is logged for auditing and analytics purposes.
 
 ##### Groups (groups)
 
 <p>
-id - integer, primary key <br></br>
-name - string <br></br>
-default_rpm - integer, default 60 <br></br>
-description - text
-created_at - timestamp, default current_timestamp
-</>
+  id - integer, primary key <br></br>
+  name - string <br></br>
+  default_rpm - integer, default 60 <br></br>
+  description - text created_at - timestamp, default current_timestamp
+</p>
 
 ##### Academic Domains (academic_domains)
 
@@ -32,7 +32,7 @@ created_at - timestamp, default current_timestamp
 ##### Group Feature Quotas (group_feature_quotas)
 
 ##### User Quota Overrides (user_quota_overrides)
-    
+
 ##### Tokens (tokens)
 
 ##### Token Features (token_features)
@@ -40,3 +40,44 @@ created_at - timestamp, default current_timestamp
 ##### Token Allowed IPs (token_allowed_ips)
 
 ##### Usage Log (usage_log)
+
+<CodeTabs 
+  examples={[
+    {
+      language: "JavaScript",
+      code: 
+      `const myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Cookie", "osduth_session=sessoin_value_here");
+
+const raw = JSON.stringify({
+    "starting_date": "2026-01-04",
+    "ending_date": null,
+    "is_current": true
+});
+
+const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+};
+
+fetch("http://localhost:9237/api/v0/schedule/admin/version", requestOptions)
+.then((response) => response.text())
+.then((result) => console.log(result))
+.catch((error) => console.error(error));`    
+    },
+    {
+      language: "Go",
+      code:`def greet(name):
+return f"Hello, {name}!"`    },
+    {
+      language: "TypeScript",
+      code:`function greet(name: string): string {
+return \`Hello, \${name}!\`;
+}`
+}
+]}
+/>

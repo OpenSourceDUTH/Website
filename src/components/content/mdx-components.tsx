@@ -3,6 +3,7 @@ import * as React from "react";
 import Callout from "@/components/callout.astro"; // Errors go away on build
 import FolderFile from "@/components/folderfile.astro"; // Errors go away on build
 import MdxCard from "@/components/content/mdx-card.astro"; // Errors go away on build
+import CodeTabs from "@/components/content/code-tabs-wrapper.astro"; // Errors go away on build
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
 
@@ -147,4 +148,5 @@ export const MdxComponents = {
   Callout,
   FolderFile,
   Card: MdxCard,
+  CodeTabs,
 };

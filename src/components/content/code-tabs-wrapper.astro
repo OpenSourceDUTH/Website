@@ -1,0 +1,15 @@
+---
+import CodeTabs from "./code-tabs";
+
+interface Props {
+  examples: Array<{
+    language: string;
+    code: string;
+  }>;
+  className?: string;
+}
+
+const { examples, className } = Astro.props;
+---
+
+<CodeTabs examples={examples} className={className} client:load />
