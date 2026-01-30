@@ -43,7 +43,7 @@ if (!slug || !doc) {
       <aside
         class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block md:top-16"
       >
-        <DocsSidebar items={docsConfig.sidebarNav} client:load />
+        <DocsSidebar items={docsConfig.sidebarNav} pathname={Astro.url.pathname} client:only="react" />
       </aside>
       <main
         class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]"
@@ -69,11 +69,11 @@ if (!slug || !doc) {
           <div
             class="sticky top-18 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"
           >
-            <DashboardTableOfContents toc={toc} client:load />
+            <DashboardTableOfContents toc={toc} client:only="react" />
           </div>
         </div>
       </main>
     </div>
   </div>
-  <DocsMobileSidebar items={docsConfig.sidebarNav} client:load />
+  <DocsMobileSidebar items={docsConfig.sidebarNav} client:only="react" />
 </DocsLayout>

@@ -29,18 +29,26 @@ export const docsConfig: DocsConfig = {
         {
           title: "Introduction",
           href: "/docs/food-schedule/introduction",
-          disabled: true,
+          disabled: false,
+        },
+        {
+          title: "Reference",
+          href: "/docs/food-schedule/reference",
+          defaultOpen: false,
+          items: [
+            {
+              title: "Get Schedule",
+              href: "/docs/food-schedule/reference-docs/schedule",
+              disabled: false,
+            },  
+          ],
         },
         {
           title: "Examples",
           href: "/docs/food-schedule/examples",
-          disabled: true,
+          disabled: false,
         },
-        {
-          title: "Endpoints",
-          href: "/docs/food-schedule/endpoints",
-          disabled: true,
-        },
+        
       ]
     },
     {

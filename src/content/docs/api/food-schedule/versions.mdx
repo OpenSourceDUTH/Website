@@ -1,0 +1,119 @@
+---
+title: Post Schedule Version
+description: ""
+---
+
+
+
+<CodeTabs 
+  examples={[
+        {
+        language: "cURL",
+        code: `curl --location 'http://osduth.gr/api/v0/admin/versions' 
+--header 'Content-Type: application/json' 
+--header 'Authorization: Bearer osduth_token' 
+--header 'Cookie: osduth_session=session_id' 
+--data '{
+    "starting_date": "YYYY-MM-DD",
+    "ending_date": null,
+    "is_current": true
+}'`    
+        },
+        {
+        language: "JavaScript",
+        code:`const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer osduth_token");
+myHeaders.append("Cookie", "osduth_session=session_id");
+
+const raw = JSON.stringify({
+    "starting_date": "YYYY-MM-DD",
+    "ending_date": null,
+    "is_current": true
+});
+
+const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+};
+
+fetch("http://osduth.gr/api/v0/admin/versions", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));`    
+        },
+        {
+        language: "Go",
+        code:`package main
+
+import (
+    "fmt"
+    "strings"
+    "net/http"
+    "io"
+)
+
+func main() {
+
+    url := "http://osduth.gr/api/v0/admin/versions"
+    method := "POST"
+
+    payload := strings.NewReader(
+        \`{
+        "starting_date": "YYYY-MM-DD",
+        "ending_date": null,
+        "is_current": true
+        }\`
+    )
+    client := &http.Client {
+    }
+    req, err := http.NewRequest(method, url, payload)
+
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    req.Header.Add("Content-Type", "application/json")
+    req.Header.Add("Authorization", "Bearer osduth_token")
+    req.Header.Add("Cookie", "osduth_session=session_id")
+
+    res, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer res.Body.Close()
+
+    body, err := io.ReadAll(res.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(string(body))
+}`
+        },
+        {
+        language: "Python",
+        code:`import http.client
+import json
+
+conn = http.client.HTTPConnection("osduth.gr", 80)
+payload = json.dumps({
+    "starting_date": "YYYY-MM-DD",
+    "ending_date": None,
+    "is_current": True
+})
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer osduth_token',
+    'Cookie': 'osduth_session=session_id'
+}
+conn.request("POST", "/api/v0/admin/versions", payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(data.decode("utf-8"))`    
+        },
+    ]}
+/>

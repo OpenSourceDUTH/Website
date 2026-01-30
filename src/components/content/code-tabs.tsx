@@ -65,6 +65,7 @@ const languageMap: Record<string, string> = {
   sql: "sql",
   markdown: "markdown",
   md: "markdown",
+  curl: "bash",
 };
 
 export function CodeTabs({ examples, className }: CodeTabsProps) {
@@ -117,7 +118,7 @@ export function CodeTabs({ examples, className }: CodeTabsProps) {
   const currentExample = examples[activeTab];
   const languageKey = languageMap[currentExample?.language?.toLowerCase()] || "text";
 
-
+  // TODO: Add space for the endpoint URL and move the language tabs into a dropdown. POST/GET/DELETE etc. tags should render as an "image"
   return (
     <div className={cn("my-6 rounded-2xl bg-slate-100 bg-zinc-800/50 pt-3 pb-1 pl-2 pr-2", className)}>
       {/* Language tabs and Copy button */}

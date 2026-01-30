@@ -1,3 +1,4 @@
+"use client";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { DocsSidebarNav } from "@/components/layout/docs-sidebar-nav";
 import type { SidebarNavItem } from "@/types";

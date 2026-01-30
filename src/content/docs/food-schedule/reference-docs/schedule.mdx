@@ -1,0 +1,62 @@
+---
+title: Get Schedule
+description: Reference documentation for the [GET] Schedule endpoint of the OpenSourceDUTH Food Schedule API.
+---
+## [GET] /api/v0/food/schedule
+Retrieve the food schedule for a specific date.
+
+
+<CodeTabs 
+  examples={[
+        {
+        language: "cURL",
+        code: ``    
+        },
+        {
+        language: "JavaScript",
+        code:``    
+        },
+        {
+        language: "Go",
+        code:``
+        },
+        {
+        language: "Python",
+        code:``    
+        },
+    ]}
+/>
+
+#### Responses
+
+Body
+
+<CodeTabs 
+  examples={[
+        {
+        language: "JSON",
+        code: `{
+    "data": ,
+    "errors": [],
+    "metadata": {
+        "timestamp": "",
+        "version": "",
+        "requestId": ""
+    }
+}`    
+        }
+    ]}
+/>
+
+Headers
+<CodeTabs 
+  examples={[
+        {
+            language: "Plain Text",
+            code: `Content-Type: application/json
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 599
+X-RateLimit-Reset: 1627776000`    
+        }
+    ]}
+/>  
